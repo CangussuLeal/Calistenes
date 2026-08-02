@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calistenes — Seja seu melhor</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span>Calistenes</span>
+    <span class="bars"><span></span><span></span><span></span></span>
+  </div>
+  <nav class="nav-links" id="nav-links">
+    <button data-nav="home">Início</button>
+    <button data-nav="dashboard">Painel</button>
+    <button data-nav="builder">Montar Treino</button>
+    <button data-nav="modules">Módulos</button>
+    <button data-nav="myworkouts">Meus Treinos</button>
+  </nav>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main>
+
+  <!-- ===================== HOME / HERO ===================== -->
+  <section id="view-home" class="view">
+    <div class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-scrim"></div>
+      <div class="hero-content">
+        <span class="hero-eyebrow">Treino de calistenia guiado ou 100% seu</span>
+        <h1 class="display">Seja seu<br>melhor</h1>
+        <button class="btn-pill" data-nav="dashboard">Comece a Treinar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DASHBOARD / PAINEL ===================== -->
+  <section id="view-dashboard" class="view">
+    <div class="dash">
+      <div class="dash-left">
+        <h2 class="display">Calistenes</h2>
+        <div class="dash-menu">
+          <button class="dash-menu-item" data-nav="modules">Módulos de Progressão</button>
+          <button class="dash-menu-item" data-nav="builder">Monte Seu Treino</button>
+          <button class="dash-menu-item" data-nav="myworkouts">Plano de Treino</button>
+        </div>
+      </div>
+      <div class="dash-right">
+        <div class="card">
+          <h3>Agenda de Treino</h3>
+          <div class="cal-head">
+            <span class="mo" id="cal-month-label"></span>
+            <span class="cal-nav">‹ ›</span>
+          </div>
+          <div class="cal-grid" id="cal-grid"></div>
+        </div>
+        <div class="card">
+          <h3>Metas Atingidas</h3>
+          <div class="goal-row">
+            <svg id="goal-donut-dash" viewBox="0 0 160 160" width="160" height="160"></svg>
+            <div class="goal-legend" id="goal-donut-dash-legend"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MONTAR TREINO ===================== -->
+  <section id="view-builder" class="view section section-dark">
+    <div class="section-head">
+      <span class="eyebrow">Monte seu treino</span>
+      <h2 class="section-title display">Montar Treino</h2>
+    </div>
+
+    <div class="builder">
+      <div class="lib-panel">
+        <span class="eyebrow">Biblioteca de exercícios</span>
+        <div class="lib-cats" id="lib-cats"></div>
+        <div class="lib-filters-row">
+          <input class="lib-search" id="lib-search" type="text" placeholder="Pesquisar exercícios...">
+          <select class="lib-nivel-select" id="lib-nivel"></select>
+        </div>
+        <div class="lib-list" id="lib-list"></div>
+      </div>
+
+      <div class="plan-panel">
+        <div class="plan-top">
+          <h3 class="display" style="font-size:26px;">Seu Treino</h3>
+          <div class="week-tabs" id="week-tabs"></div>
+          <div class="plan-drop" id="plan-drop"></div>
+          <div class="plan-stats" id="plan-stats"></div>
+          <div class="plan-meta">
+            <input id="plan-name" type="text" placeholder="Nome do treino">
+            <button class="btn-pill small" id="save-plan-btn">+ Salvar</button>
+          </div>
+        </div>
+
+        <div class="goals-panel">
+          <h3>Metas</h3>
+          <div class="goal-row">
+            <svg id="goal-donut-builder" viewBox="0 0 160 160" width="150" height="150"></svg>
+            <ul class="goals-list" id="builder-goals-list"></ul>
+          </div>
+          <div class="goal-add" style="margin-top:16px;"><span class="plus-circle">+</span> Adicionar meta</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MÓDULOS DE PROGRESSÃO ===================== -->
+  <section id="view-modules" class="view section">
+    <div class="section-head" style="text-align:center;">
+      <span class="eyebrow">Etapas de progresso</span>
+      <h2 class="section-title display">Módulos de Progressão</h2>
+    </div>
+    <div class="modules-strip" id="modules-grid"></div>
+  </section>
+
+  <!-- ===================== DETALHE DO PROGRAMA ===================== -->
+  <section id="view-detail" class="view">
+    <div class="detail">
+      <div class="detail-img" id="detail-img"></div>
+      <div class="detail-body">
+        <h2 class="display" id="detail-name">Handstand</h2>
+        <span class="detail-sub" id="detail-level">Treino Iniciante</span>
+        <p id="detail-intro" style="color:#c9c9c9; line-height:1.6; max-width:520px;"></p>
+
+        <ul class="ex-list" id="detail-exlist"></ul>
+
+        <div>
+          <h3 class="display" style="font-size:20px; margin-bottom:10px;">Meta:</h3>
+          <ul class="goals-inline" id="detail-goals"></ul>
+        </div>
+
+        <button class="btn-pill" id="start-session-btn" style="align-self:flex-start;">Iniciar Treino</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MEUS TREINOS ===================== -->
+  <section id="view-myworkouts" class="view section section-dark">
+    <div class="section-head" style="text-align:center;">
+      <span class="eyebrow">Programas guiados</span>
+      <h2 class="section-title display">Meus Treinos</h2>
+      <p style="color:var(--grey);">Selecione o treino para iniciar</p>
+    </div>
+    <div class="workouts-grid" id="my-workouts-grid"></div>
+
+    <div class="dash-right" style="margin-top:60px; padding:0;">
+      <div class="card">
+        <h3>Agenda de Treino</h3>
+        <div class="cal-head">
+          <span class="mo" id="cal-month-label-2"></span>
+          <span class="cal-nav">‹ ›</span>
+        </div>
+        <div class="cal-grid" id="cal-grid-2"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SESSÃO / EXERCÍCIO ===================== -->
+  <section id="view-session" class="view section">
+    <div class="session">
+      <div class="session-top">
+        <div>
+          <span class="eyebrow">Exercício <span id="session-exindex">1</span> / <span id="session-extotal">1</span></span>
+          <h2 class="display" style="font-size:38px;" id="session-exname">Prancha</h2>
+          <div class="session-meta">
+            <span id="session-exsets">3x45s</span>
+            <span id="session-exmeta"></span>
+          </div>
+        </div>
+        <div class="session-actions">
+          <button id="session-next-link">Próximo treino</button>
+          <button id="session-finish-link">Finalizar</button>
+        </div>
+      </div>
+
+      <div class="session-grid">
+        <div class="session-photo">
+          <img id="session-photo-img" src="" alt="Demonstração do exercício">
+          <a id="session-tutorial-link" class="tutorial-tag" href="#" target="_blank" rel="noopener">Tutorial ↗</a>
+        </div>
+
+        <div class="timer-wrap">
+          <div class="timer-ring">
+            <svg viewBox="0 0 280 280">
+              <circle class="bg" cx="140" cy="140" r="130"></circle>
+              <circle class="fg" id="timer-fg" cx="140" cy="140" r="130"></circle>
+            </svg>
+            <div class="timer-time" id="timer-time">00:00</div>
+          </div>
+          <div class="timer-controls">
+            <button class="icon-btn" id="timer-reset-btn" title="Reiniciar">↺</button>
+            <button class="icon-btn primary" id="timer-toggle-btn" title="Play/Pause">
+              <span id="timer-play-icon">▶</span>
+            </button>
+            <button class="icon-btn" id="timer-next-btn" title="Próximo exercício">➜</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span>© 2026 Calistenes — Seja seu melhor.</span>
+  <span>Treino guiado ou personalizado, no seu ritmo.</span>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="exercises.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
