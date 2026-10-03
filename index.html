@@ -106,6 +106,7 @@
             <svg id="goal-donut-builder" viewBox="0 0 160 160" width="150" height="150"></svg>
             <ul class="goals-list" id="builder-goals-list"></ul>
           </div>
+          <div class="goals-recommendations" id="goal-recommendations"></div>
           <div class="goal-add" style="margin-top:16px;"><span class="plus-circle">+</span> Adicionar meta</div>
         </div>
       </div>
@@ -159,6 +160,7 @@
           <span class="cal-nav">‹ ›</span>
         </div>
         <div class="cal-grid" id="cal-grid-2"></div>
+        <div class="agenda-list" id="agenda-list"></div>
       </div>
     </div>
   </section>
@@ -173,9 +175,12 @@
           <div class="session-meta">
             <span id="session-exsets">3x45s</span>
             <span id="session-exmeta"></span>
+            <span id="session-total-time">Tempo total: 00:00</span>
+            <span id="session-pause-text">Pausa: 45s</span>
           </div>
         </div>
         <div class="session-actions">
+          <button id="session-pause-btn">Iniciar série</button>
           <button id="session-next-link">Próximo treino</button>
           <button id="session-finish-link">Finalizar</button>
         </div>
@@ -215,6 +220,23 @@
 </footer>
 
 <div class="toast" id="toast"></div>
+
+<div class="custom-modal hidden" id="custom-modal" aria-hidden="true">
+  <div class="custom-modal-backdrop" data-close-modal="true"></div>
+  <div class="custom-modal-card" role="dialog" aria-modal="true" aria-labelledby="custom-modal-title">
+    <div class="custom-modal-header">
+      <h3 id="custom-modal-title">Adicionar</h3>
+      <button class="custom-modal-close" id="custom-modal-close" type="button" aria-label="Fechar modal">×</button>
+    </div>
+    <form id="custom-modal-form">
+      <div id="custom-modal-fields"></div>
+      <div class="custom-modal-actions">
+        <button class="btn-pill ghost" id="custom-modal-cancel" type="button">Cancelar</button>
+        <button class="btn-pill" id="custom-modal-submit" type="submit">Salvar</button>
+      </div>
+    </form>
+  </div>
+</div>
 
 <script src="exercises.js"></script>
 <script src="app.js"></script>
